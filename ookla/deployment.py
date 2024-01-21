@@ -17,5 +17,6 @@ DATABASES = {
         'HOST': conn_str_params['host'],
         'USER': conn_str_params['user'],
         'PASSWORD': conn_str_params['password'],
+        'PORT': conn_str_params['port'],
     }
 }
