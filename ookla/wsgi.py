@@ -26,4 +26,12 @@ settings_module = 'ookla.deployment' if is_azure else 'ookla.settings'
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", settings_module)
 
+# Log the environment variables for debugging (optional)
+if is_azure:
+    print("Running in Azure Web App environment")
+    print(f"WEBSITE_SITE_NAME: {os.environ.get('WEBSITE_SITE_NAME')}")
+    print(f"WEBSITE_INSTANCE_ID: {os.environ.get('WEBSITE_INSTANCE_ID')}")
+else:
+    print("Running in local development environment")
+
 application = get_wsgi_application()
