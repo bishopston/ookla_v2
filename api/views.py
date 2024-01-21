@@ -1,8 +1,14 @@
 from rest_framework import generics
+from django.http import HttpResponse
 from speed_test.models import Fixed, Mobile, Historical
 from .serializers import FixedSerializer, FixedCountrySerializer, FixedCountryAreaSerializer, FixedCountryAreaProviderSerializer, FixedCountryAreaPeriodSerializer, FixedCountryAreaPeriodDataSerializer
 from .serializers import MobileCountrySerializer, MobileCountryAreaSerializer, MobileCountryAreaProviderSerializer, MobileCountryAreaPeriodSerializer, MobileCountryAreaPeriodDataSerializer
 from .serializers import HistoricalCountrySerializer, HistoricalCountryAreaSerializer, HistoricalCountryAreaPeriodSerializer, HistoricalCountryAreaPeriodDataMobileSerializer, HistoricalCountryAreaPeriodDataFixedSerializer
+
+
+def HomePageView(response):
+    return HttpResponse("Hello, World!")
+
 
 class FixedAPIView(generics.ListAPIView):
     queryset = Fixed.objects.all()[:10]
